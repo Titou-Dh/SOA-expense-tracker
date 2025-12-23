@@ -1,0 +1,228 @@
+{
+  "description": "Example JSON request bodies for Postman testing",
+  "examples": {
+    "create_income": {
+      "description": "Create an income transaction",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Monthly Salary",
+        "amount": 5000.00,
+        "type": "income",
+        "category": "Salary",
+        "date": "2024-01-15T10:00:00",
+        "note": "Monthly salary payment"
+      }
+    },
+    "create_expense_food": {
+      "description": "Create a food expense transaction",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Weekly Groceries",
+        "amount": 150.50,
+        "type": "expense",
+        "category": "Food",
+        "date": "2024-01-14T15:30:00",
+        "note": "Weekly grocery shopping"
+      }
+    },
+    "create_expense_housing": {
+      "description": "Create a housing expense transaction",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Rent Payment",
+        "amount": 1200.00,
+        "type": "expense",
+        "category": "Housing",
+        "date": "2024-01-01T00:00:00",
+        "note": "Monthly rent payment"
+      }
+    },
+    "create_expense_transportation": {
+      "description": "Create a transportation expense transaction",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Gas Station",
+        "amount": 45.75,
+        "type": "expense",
+        "category": "Transportation",
+        "date": "2024-01-13T08:00:00",
+        "note": "Fuel for car"
+      }
+    },
+    "create_income_freelance": {
+      "description": "Create a freelance income transaction",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Freelance Project Payment",
+        "amount": 800.00,
+        "type": "income",
+        "category": "Freelance",
+        "date": "2024-01-12T12:00:00",
+        "note": "Payment for completed project"
+      }
+    },
+    "create_minimal": {
+      "description": "Create a transaction without optional fields",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Coffee Shop",
+        "amount": 5.50,
+        "type": "expense",
+        "category": "Food",
+        "date": "2024-01-15T09:00:00"
+      }
+    },
+    "update_transaction": {
+      "description": "Update an existing transaction",
+      "method": "PUT",
+      "url": "http://localhost:5000/api/transactions/1",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Updated Monthly Salary",
+        "amount": 5500.00,
+        "type": "income",
+        "category": "Salary",
+        "date": "2024-01-15T10:00:00",
+        "note": "Updated salary with raise"
+      }
+    },
+    "error_missing_description": {
+      "description": "Error case - missing required description field",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "amount": 100.00,
+        "type": "expense",
+        "category": "Food"
+      },
+      "expected_response": {
+        "status": 400,
+        "body": {
+          "error": "Transaction description is required"
+        }
+      }
+    },
+    "error_negative_amount": {
+      "description": "Error case - negative amount",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Test Transaction",
+        "amount": -50.00,
+        "type": "expense",
+        "category": "Food"
+      },
+      "expected_response": {
+        "status": 400,
+        "body": {
+          "error": "Amount must be positive"
+        }
+      }
+    },
+    "error_invalid_type": {
+      "description": "Error case - invalid type value",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Test Transaction",
+        "amount": 100.00,
+        "type": "invalid",
+        "category": "Food"
+      },
+      "expected_response": {
+        "status": 400,
+        "body": {
+          "error": "Type must be 'income' or 'expense'"
+        }
+      }
+    },
+    "error_missing_category": {
+      "description": "Error case - missing required category field",
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "description": "Test Transaction",
+        "amount": 100.00,
+        "type": "expense"
+      },
+      "expected_response": {
+        "status": 400,
+        "body": {
+          "error": "Category is required"
+        }
+      }
+    }
+  },
+  "endpoints": {
+    "get_all": {
+      "method": "GET",
+      "url": "http://localhost:5000/api/transactions",
+      "description": "Get all transactions"
+    },
+    "get_by_id": {
+      "method": "GET",
+      "url": "http://localhost:5000/api/transactions/1",
+      "description": "Get transaction by ID (replace 1 with actual ID)"
+    },
+    "create": {
+      "method": "POST",
+      "url": "http://localhost:5000/api/transactions",
+      "description": "Create a new transaction",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    "update": {
+      "method": "PUT",
+      "url": "http://localhost:5000/api/transactions/1",
+      "description": "Update transaction by ID (replace 1 with actual ID)",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    "delete": {
+      "method": "DELETE",
+      "url": "http://localhost:5000/api/transactions/1",
+      "description": "Delete transaction by ID (replace 1 with actual ID)"
+    }
+  }
+}
+

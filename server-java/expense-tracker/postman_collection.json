@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "expense-tracker-api",
+		"name": "Expense Tracker API - Java Backend",
+		"description": "Collection of API endpoints for the Expense Tracker Java backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get All Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Retrieves all transactions sorted by date (descending)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/transactions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions",
+								"1"
+							]
+						},
+						"description": "Retrieves a single transaction by its ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Income",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Monthly Salary\",\n  \"amount\": 5000.00,\n  \"type\": \"income\",\n  \"category\": \"Salary\",\n  \"date\": \"2024-01-15T10:00:00\",\n  \"note\": \"Monthly salary payment\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Creates a new income transaction"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Expense (Food)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Weekly Groceries\",\n  \"amount\": 150.50,\n  \"type\": \"expense\",\n  \"category\": \"Food\",\n  \"date\": \"2024-01-14T15:30:00\",\n  \"note\": \"Weekly grocery shopping\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Creates a new expense transaction for food"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Expense (Housing)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Rent Payment\",\n  \"amount\": 1200.00,\n  \"type\": \"expense\",\n  \"category\": \"Housing\",\n  \"date\": \"2024-01-01T00:00:00\",\n  \"note\": \"Monthly rent payment\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Creates a new expense transaction for housing"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Expense (Transportation)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Gas Station\",\n  \"amount\": 45.75,\n  \"type\": \"expense\",\n  \"category\": \"Transportation\",\n  \"date\": \"2024-01-13T08:00:00\",\n  \"note\": \"Fuel for car\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Creates a new expense transaction for transportation"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Income (Freelance)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Freelance Project Payment\",\n  \"amount\": 800.00,\n  \"type\": \"income\",\n  \"category\": \"Freelance\",\n  \"date\": \"2024-01-12T12:00:00\",\n  \"note\": \"Payment for completed project\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Creates a new income transaction for freelance work"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Minimal (No Note)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Coffee Shop\",\n  \"amount\": 5.50,\n  \"type\": \"expense\",\n  \"category\": \"Food\",\n  \"date\": \"2024-01-15T09:00:00\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Creates a transaction without a note (optional field)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transaction",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Updated Monthly Salary\",\n  \"amount\": 5500.00,\n  \"type\": \"income\",\n  \"category\": \"Salary\",\n  \"date\": \"2024-01-15T10:00:00\",\n  \"note\": \"Updated salary with raise\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions",
+								"1"
+							]
+						},
+						"description": "Updates an existing transaction by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/transactions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions",
+								"1"
+							]
+						},
+						"description": "Deletes a transaction by ID"
+					},
+					"response": []
+				}
+			],
+			"description": "All transaction-related endpoints"
+		},
+		{
+			"name": "Error Testing",
+			"item": [
+				{
+					"name": "Create Transaction - Missing Description",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 100.00,\n  \"type\": \"expense\",\n  \"category\": \"Food\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Tests validation - should return 400 Bad Request"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Negative Amount",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Test Transaction\",\n  \"amount\": -50.00,\n  \"type\": \"expense\",\n  \"category\": \"Food\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Tests validation - should return 400 Bad Request"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Invalid Type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Test Transaction\",\n  \"amount\": 100.00,\n  \"type\": \"invalid\",\n  \"category\": \"Food\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Tests validation - should return 400 Bad Request"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction - Missing Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Test Transaction\",\n  \"amount\": 100.00,\n  \"type\": \"expense\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions"
+							]
+						},
+						"description": "Tests validation - should return 400 Bad Request"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction - Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/transactions/99999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions",
+								"99999"
+							]
+						},
+						"description": "Tests 404 Not Found response"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transaction - Not Found",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Test\",\n  \"amount\": 100.00,\n  \"type\": \"expense\",\n  \"category\": \"Food\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/transactions/99999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions",
+								"99999"
+							]
+						},
+						"description": "Tests 404 Not Found response"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Transaction - Not Found",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/transactions/99999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"transactions",
+								"99999"
+							]
+						},
+						"description": "Tests 404 Not Found response"
+					},
+					"response": []
+				}
+			],
+			"description": "Test cases for error handling and validation"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
+
