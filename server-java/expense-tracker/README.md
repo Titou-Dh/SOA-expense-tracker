@@ -1,12 +1,12 @@
 # Expense Tracker - Java Backend
 
-A RESTful API backend for the Expense Tracker application built with Java, JAX-RS (Jersey), and MySQL. This backend provides the same endpoints as the Node.js/Express server, following the same architectural patterns.
+A RESTful API backend for the Expense Tracker application built with Java, JAX-RS (RESTEasy), and MySQL. This backend provides the same endpoints as the Node.js/Express server, following the same architectural patterns.
 
 ## 🚀 Tech Stack
 
 - **Java 8**
-- **JAX-RS (Jersey 2.35)** - RESTful Web Services
-- **Grizzly HTTP Server** - Embedded HTTP server
+- **JAX-RS (RESTEasy 3.15.3)** - RESTful Web Services
+- **Undertow HTTP Server** - Embedded HTTP server
 - **MySQL** - Relational database
 - **Maven** - Dependency management
 
@@ -16,6 +16,7 @@ A RESTful API backend for the Expense Tracker application built with Java, JAX-R
 expense-tracker/
 ├── src/main/java/org/example/
 │   ├── Main.java                    # Server entry point
+│   ├── JaxRsApplication.java        # JAX-RS application configuration
 │   ├── config/
 │   │   └── CORSFilter.java          # CORS configuration
 │   ├── controller/
@@ -200,10 +201,10 @@ This project follows a layered architecture similar to TP11:
 
 | Feature | Express (Node.js) | Java (JAX-RS) |
 |---------|-------------------|---------------|
-| Framework | Express.js | Jersey (JAX-RS) |
+| Framework | Express.js | RESTEasy (JAX-RS) |
 | Database | MongoDB (Mongoose) | MySQL (JDBC) |
 | ORM | Mongoose ODM | Raw JDBC |
-| Server | Express HTTP | Grizzly HTTP |
+| Server | Express HTTP | Undertow HTTP |
 | Port | 5000 | 5000 |
 | Endpoints | Same | Same |
 

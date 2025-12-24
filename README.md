@@ -29,8 +29,8 @@ A modern, full-stack personal finance management application. Track your expense
 
 ### Backend
 
-- **Java 8+** with **JAX-RS (Jersey)**
-- **Grizzly HTTP Server** (Embedded server)
+- **Java 8+** with **JAX-RS (RESTEasy)**
+- **Undertow HTTP Server** (Embedded server)
 - **MySQL** (Relational database)
 - **Maven** (Dependency management)
 - **JDBC** (Database connectivity)
